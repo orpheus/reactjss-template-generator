@@ -6,6 +6,8 @@ const styles = theme => ({
 	    flex-direction: column;
 	    box-shadow: 0px 2px 4px;
 	    color: grey;
+	    margin-top: 50px;
+	    margin-left: 50px;
 	    `,
 	colorHeader: {
 		display: 'flex',
@@ -44,6 +46,7 @@ const styles = theme => ({
 		color: theme.palette.primary.main,
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
+			color: theme.palette.primary.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.primary.main,
@@ -53,6 +56,7 @@ const styles = theme => ({
 		color: theme.palette.secondary.main,
 		'&:hover': {
 			backgroundColor: theme.palette.secondary.main,
+			color: theme.palette.secondary.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.secondary.main,
@@ -62,6 +66,7 @@ const styles = theme => ({
 		color: theme.palette.tertiary.main,
 		'&:hover': {
 			backgroundColor: theme.palette.tertiary.main,
+			color: theme.palette.tertiary.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.tertiary.main,
@@ -71,6 +76,7 @@ const styles = theme => ({
 		color: theme.palette.success.main,
 		'&:hover': {
 			backgroundColor: theme.palette.success.main,
+			color: theme.palette.success.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.success.main,
@@ -80,6 +86,7 @@ const styles = theme => ({
 		color: theme.palette.danger.main,
 		'&:hover': {
 			backgroundColor: theme.palette.danger.main,
+			color: theme.palette.danger.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.danger.main,
@@ -89,6 +96,7 @@ const styles = theme => ({
 		color: theme.palette.warning.main,
 		'&:hover': {
 			backgroundColor: theme.palette.warning.main,
+			color: theme.palette.warning.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.warning.main,
@@ -98,6 +106,7 @@ const styles = theme => ({
 		color: theme.palette.info.main,
 		'&:hover': {
 			backgroundColor: theme.palette.info.main,
+			color: theme.palette.info.bright[1]
 		},
 		'&:active': {
 			backgroundColor: theme.palette.info.main,
