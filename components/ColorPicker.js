@@ -4,37 +4,32 @@ import _ from 'classnames'
 
 import styles from '../styles/ThemePicker'
 
-const ColorPicker = ({classes}) => {
+const capitalize = (word) => {
+	return word[0].toUpperCase() + word.slice(1)
+}
+
+const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
+	// console.log('render')
 	return <div className={classes.root}>
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
 		</div>
 		<div className={classes.listContainer}>
 			<ul className={classes.colorList}>
-				<li className={_(classes.colorItem, classes.colorPrimary)}>
-					<span>Primary</span>
-				</li>
-				<li className={_(classes.colorItem, classes.colorSecondary)}>
-					<span>Secondary</span>
-				</li>
-				<li className={_(classes.colorItem, classes.colorTertiary)}>
-					<span>Tertiary</span>
-				</li>
-				<li className={_(classes.colorItem, classes.colorSuccess)}>
-					<span>Success</span>
-				</li>
-				<li className={_(classes.colorItem, classes.colorDanger)}>
-					<span>Danger</span>
-				</li>
-				<li className={_(classes.colorItem, classes.colorWarning)}>
-					<span>Warning</span>
-				</li>
-				<li className={_(classes.colorItem, classes.colorInfo)}>
-					<span>Info</span>
-				</li>
+				{theme.palette.colorTypes.map((ct, i) => {
+					return <li
+						key={i}
+						id={ct}
+						className={_(classes.colorItem, classes[`color${capitalize(ct)}`])}
+						onMouseEnter={showSpectrum}
+						onMouseLeave={hideSpectrum}
+					>
+						<span>{ct}</span>
+					</li>
+				})}
 			</ul>
 		</div>
 	</div>
 }
 
-export default withStyles(styles)(ColorPicker)
+export default withStyles(styles, {injectTheme: true})(ColorPicker)
