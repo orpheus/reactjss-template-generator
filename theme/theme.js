@@ -26,7 +26,7 @@ const darken = (color, shades = 3) => {
 
 const brighten = (color, shades = 3) => {
 	let arr = []
-	for (let i = shades; i > 0; i--) {
+	for (let i = 0; i < shades; i++) {
 		arr.push(chroma(color).brighten(i).hex())
 	}
 	return arr
