@@ -24,6 +24,66 @@ const styles = theme => ({
         -webkit-background-clip: text;
         background-clip: text;
   `,
+	
+	// --- JSS TOGGLE SWITCH BEGIN
+	switch: {
+		position: 'relative',
+		display: 'inline-block',
+		width: 60,
+		height: 34,
+		'& input': {
+			opacity: 0,
+			width: 0,
+			height: 0,
+		}
+	},
+	slider: {
+		position: 'absolute',
+		cursor: 'pointer',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		backgroundColor: '#ccc',
+		'-webkit-transition': '.4s',
+		transition: '.4s',
+		'&:before': {
+			position: 'absolute',
+			content: '""',
+			height: 26,
+			width: 26,
+			left: 4,
+			bottom: 4,
+			backgroundColor: 'pink',
+			'-webkit-transition': '4s',
+			transition: '4s',
+		},
+		'&$round': {
+			borderRadius: 34,
+			'&:before': {
+				borderRadius: '50%'
+			}
+		}
+		,
+	},
+	'@global': {
+		input: {
+			'&:checked, $slider': {
+				backgroundColor: 'black'
+			},
+			'&:focus, $slider': {
+				boxShadow: '0 0 1px #2196F3',
+			},
+			'&:checked, $slider:before': `
+				-webkit-transform: translateX(26px);
+			    -ms-transform: translateX(26px);
+			    transform: translateX(26px);
+			`,
+		}
+	},
+	round: {},
+	// --- JSS TOGGLE SWITCH END
+	
 	listContainer: {
 		display: 'flex',
 		flexDirection: 'column'

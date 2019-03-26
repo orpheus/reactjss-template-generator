@@ -13,6 +13,10 @@ const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
 	return <div className={classes.root}>
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
+			<label className={classes.switch}>
+				<input type="checkbox"/>
+					<span className={_(classes.slider, classes.round)} />
+			</label>
 		</div>
 		<div className={classes.listContainer}>
 			<ul className={classes.colorList}>
