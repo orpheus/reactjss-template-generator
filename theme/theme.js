@@ -2,7 +2,7 @@ import chroma from 'chroma-js'
 
 const saturate = (color, shades = 3) => {
 	let arr = []
-	for (let i = shades; i > 0; i--) {
+	for (let i = 0; i < shades; i++) {
 		arr.push(chroma(color).saturate(i).hex())
 	}
 	return arr
