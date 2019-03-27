@@ -19,17 +19,16 @@ const ColorSpectrum = ({classes, activeColorType, theme}) => {
 		return null
 	}
 	
-	const spectrum = theme.palette[activeColorType]
-	delete spectrum['main'] //delete the main color as we already have it displayed
+	let {main, ...rest} = theme.palette[activeColorType] // rest === color shades
 	
 	return <div className={classes.root}>
-		{Object.keys(spectrum).map((name, i) => {
+		{Object.keys(rest).map((name, i) => {
 			return <div key={i} className={classes.colorRowContainer}>
 				<div className={classes.colorRow}>
 					<div className={classes.titleColumn}>
 						<h4>{spectrumNames[name]}</h4>
 						<div className={classes.colorRow}>
-							{spectrum[name].map((color, i) => {
+							{rest[name].map((color, i) => {
 								return <div key={i} className={classes.colorBlock} style={{backgroundColor: color}}/>
 							})}
 						</div>
