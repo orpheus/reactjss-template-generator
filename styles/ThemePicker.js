@@ -47,6 +47,8 @@ const styles = theme => ({
 		backgroundColor: '#ccc',
 		'-webkit-transition': '.4s',
 		transition: '.4s',
+		'-o-transition': '.4s',
+		'-moz-transition': '.4s',
 		'&:before': {
 			position: 'absolute',
 			content: '""',
@@ -57,6 +59,8 @@ const styles = theme => ({
 			backgroundColor: 'pink',
 			'-webkit-transition': '4s',
 			transition: '4s',
+			'-o-transition': '.4s',
+			'-moz-transition': '.4s',
 		},
 		'&$round': {
 			borderRadius: 34,
@@ -68,14 +72,16 @@ const styles = theme => ({
 	},
 	'@global': {
 		input: {
-			'&:checked, $slider': {
+			'&:checked + $slider': {
 				backgroundColor: 'black'
 			},
-			'&:focus, $slider': {
+			'&:focus + $slider': {
 				boxShadow: '0 0 1px #2196F3',
 			},
-			'&:checked, $slider:before': `
+			'&:checked + $slider:before': `
 				-webkit-transform: translateX(26px);
+				-moz-transform: translateX(26px);
+				-o-transform: translateX(26px);
 			    -ms-transform: translateX(26px);
 			    transform: translateX(26px);
 			`,
