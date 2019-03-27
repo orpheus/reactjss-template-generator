@@ -9,16 +9,17 @@ const capitalize = (word) => {
 	return word[0].toUpperCase() + word.slice(1)
 }
 
-const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
-	// console.log('render')
+const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme}) => {
+	const colorTypes = theme.palette.colorTypes
 	return <div className={classes.root}>
+		
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
 			<div className={classes.switchContainer}>
 				<img style={{height: '14px'}} src={'/static/moon.svg'} alt={'dark'} />
 				<div style={{marginLeft: '5px', marginRight: '5px'}}>
 					<ToggleSwitch
-						handleSwitch={(state) => {console.log(state)}}
+						onSwitch={toggleTheme}
 						defaultState={true}
 					/>
 				</div>
@@ -27,7 +28,7 @@ const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
 		</div>
 		<div className={classes.listContainer}>
 			<ul className={classes.colorList}>
-				{theme.palette.colorTypes.map((ct, i) => {
+				{colorTypes.map((ct, i) => {
 					return <li
 						key={i}
 						id={ct}
@@ -43,4 +44,4 @@ const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
 	</div>
 }
 
-export default withStyles(styles, {injectTheme: true})(ColorPicker)
+export default withStyles(styles, {injectTheme: true})(ThemePicker)

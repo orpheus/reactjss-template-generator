@@ -10,10 +10,6 @@ const spectrumNames = {
 	dark: 'darkened',
 }
 
-const capitalize = (word) => {
-	return word[0].toUpperCase() + word.slice(1)
-}
-
 const ColorSpectrum = ({classes, activeColorType, theme}) => {
 	if (!activeColorType) {
 		return null

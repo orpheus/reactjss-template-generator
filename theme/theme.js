@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 
-const saturate = (color, shades = 3) => {
+const saturate = (color, shades = 5) => {
 	let arr = []
 	for (let i = 0; i < shades; i++) {
 		arr.push(chroma(color).saturate(i).hex())
@@ -8,7 +8,7 @@ const saturate = (color, shades = 3) => {
 	return arr
 }
 
-const desaturate = (color, shades = 3) => {
+const desaturate = (color, shades = 5) => {
 	let arr = []
 	for (let i = 0; i < shades; i++) {
 		arr.push(chroma(color).desaturate(i).hex())
@@ -16,7 +16,7 @@ const desaturate = (color, shades = 3) => {
 	return arr
 }
 
-const darken = (color, shades = 3) => {
+const darken = (color, shades = 5) => {
 	let arr = []
 	for (let i = 0; i < shades; i++) {
 		arr.push(chroma(color).darken(i).hex())
@@ -24,17 +24,31 @@ const darken = (color, shades = 3) => {
 	return arr
 }
 
-const brighten = (color, shades = 3) => {
+const brighten = (color, shades = 5) => {
 	let arr = []
 	for (let i = 0; i < shades; i++) {
 		arr.push(chroma(color).brighten(i).hex())
 	}
 	return arr
 }
-const paletteLight = {
+const lightTheme = {
 	primary: 'teal',
 	secondary: 'darkblue',
 	tertiary: 'green',
+	background: 'white',
+	text: 'black',
+	success: 'green',
+	warning: 'orange',
+	danger: 'red',
+	info: 'blue',
+}
+
+const darkTheme = {
+	primary: 'blue',
+	secondary: 'yellow',
+	tertiary: 'purple',
+	background: 'black',
+	text: 'white',
 	success: 'green',
 	warning: 'orange',
 	danger: 'red',
@@ -57,31 +71,42 @@ const generatePalette = (palette, shades = 5) => {
 	}
 	return tmpObj
 }
-const theme = {
-	palette: {
-		colorTypes: Object.keys(paletteLight),
-		...generatePalette(paletteLight),
-		light: 'white',
-		greyscale: (v) => {
-			let f = chroma.scale()
-			return f(v).hex()
-		}
-	},
-	breakpoints: {
-		xs: 0,
-		sm: 600,
-		md: 960,
-		lg: 1280,
-		xl: 1920,
-	},
-	headerHeight: '70px',
-	borderRadius: {
-		xs: '2%',
-		sm: '4%',
-		md: '8%',
-		lg: '16%',
-		xl: '32%',
+
+const commonPalette = {
+	colorTypes: Object.keys(lightTheme),
+	greyscale: (v) => {
+		let f = chroma.scale()
+		return f(v).hex()
 	}
+}
+let theme = {
+	mode: 'light',
+	light: {
+		palette: {
+			...generatePalette(lightTheme),
+			...commonPalette
+		},
+	},
+	dark: {
+		palette: {
+			...generatePalette(darkTheme),
+			...commonPalette
+		},
+	},
+}
+export const otherTheme = {
+	light: {
+		palette: {
+			...generatePalette(lightTheme),
+			...commonPalette
+		},
+	},
+	dark: {
+		palette: {
+			...generatePalette(darkTheme),
+			...commonPalette
+		},
+	},
 }
 
 export default theme

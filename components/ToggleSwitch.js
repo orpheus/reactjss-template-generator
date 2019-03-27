@@ -3,16 +3,16 @@ import withStyles from 'react-jss'
 import styles from '../styles/ToggleSwitch'
 import _ from "classnames";
 
-const ToggleSwitch = ({classes, onChange, defaultState = false}) => {
+const ToggleSwitch = ({classes, onSwitch, defaultState = false}) => {
 	const [state, toggleSwitch] = useState(defaultState)
-	
+
 	const handleOnChange = () => {
 		toggleSwitch(!state)
 	}
 	
 	useEffect(() => {
-		if (onChange) {
-			onChange(state)
+		if (onSwitch) {
+			onSwitch(state)
 		}
 	}, [state])
 	
