@@ -14,9 +14,16 @@ const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
 	return <div className={classes.root}>
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
-			<ToggleSwitch
-				handleSwitch={(state) => {console.log(state)}}
-			/>
+			<div className={classes.switchContainer}>
+				<img style={{height: '14px'}} src={'/static/moon.svg'} alt={'dark'} />
+				<div style={{marginLeft: '5px', marginRight: '5px'}}>
+					<ToggleSwitch
+						handleSwitch={(state) => {console.log(state)}}
+						defaultState={true}
+					/>
+				</div>
+				<img style={{height: '18px'}} src={'/static/sun24.svg'} alt={'light'} />
+			</div>
 		</div>
 		<div className={classes.listContainer}>
 			<ul className={classes.colorList}>

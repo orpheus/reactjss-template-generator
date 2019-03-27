@@ -23,7 +23,16 @@ const styles = theme => ({
         color:transparent;
         -webkit-background-clip: text;
         background-clip: text;
+        margin-left: 100px;
   `,
+	switchContainer: {
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginLeft: 'auto',
+		marginRight: '40px',
+	},
 	listContainer: {
 		display: 'flex',
 		flexDirection: 'column'

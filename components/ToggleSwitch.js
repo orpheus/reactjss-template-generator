@@ -21,6 +21,7 @@ const ToggleSwitch = ({classes, onChange, defaultState = false}) => {
 			<input
 				onChange={handleOnChange}
 				type="checkbox"
+				checked={state}
 			/>
 			<span className={_(classes.slider, classes.round)}/>
 		</label>
