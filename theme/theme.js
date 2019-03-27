@@ -62,7 +62,10 @@ const theme = {
 		colorTypes: Object.keys(paletteLight),
 		...generatePalette(paletteLight),
 		light: 'white',
-		greyscale: chroma.scale()
+		greyscale: (v) => {
+			let f = chroma.scale()
+			return f(v).hex()
+		}
 	},
 	breakpoints: {
 		xs: 0,

@@ -33,7 +33,7 @@ const styles = theme => ({
 			left: '-8px',
 			top: '-4px',
 			bottom: 4,
-			backgroundColor: theme.palette.greyscale(1).hex(),
+			backgroundColor: theme.palette.greyscale(1),
 			'-webkit-transition': '.4s',
 			transition: '.4s',
 			'-o-transition': '.4s',
@@ -50,7 +50,7 @@ const styles = theme => ({
 	'@global': {
 		input: {
 			'&:checked + $slider': {
-				backgroundColor: theme.palette.greyscale(.5).hex()
+				backgroundColor: theme.palette.greyscale(.5)
 			},
 			'&:focus + $slider': {
 				boxShadow: '0 0 1px #2196F3',
