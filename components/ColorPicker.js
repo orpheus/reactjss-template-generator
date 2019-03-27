@@ -2,6 +2,7 @@ import React from 'react'
 import withStyles from 'react-jss'
 import _ from 'classnames'
 
+import ToggleSwitch from './ToggleSwitch'
 import styles from '../styles/ThemePicker'
 
 const capitalize = (word) => {
@@ -13,10 +14,9 @@ const ColorPicker = ({classes, theme, showSpectrum, hideSpectrum}) => {
 	return <div className={classes.root}>
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
-			<label className={classes.switch}>
-				<input type="checkbox"/>
-					<span className={_(classes.slider, classes.round)} />
-			</label>
+			<ToggleSwitch
+				handleSwitch={(state) => {console.log(state)}}
+			/>
 		</div>
 		<div className={classes.listContainer}>
 			<ul className={classes.colorList}>
