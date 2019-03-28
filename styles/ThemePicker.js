@@ -51,7 +51,8 @@ const styles = theme => ({
 		padding: '0px 30px',
 		fontSize: 18,
 		fontWeight: 'bold',
-	}
+		position: 'relative'
+	},
 })
 
 export default styles
