@@ -1,14 +1,14 @@
 const styles = theme => ({
 	root: `
-		    width: 450px;
-		    border-radius: 5px;
-		    display: flex;
-		    flex-direction: column;
-		    box-shadow: 0px 2px 4px;
-		    color: grey;
-		    margin-top: 50px;
-		    margin-left: 50px;
-	    `,
+	    width: 450px;
+	    border-radius: 5px;
+	    display: flex;
+	    flex-direction: column;
+	    box-shadow: 0px 2px 4px;
+	    color: grey;
+	    margin-top: 50px;
+	    margin-left: 50px;
+    `,
 	colorHeader: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -18,13 +18,13 @@ const styles = theme => ({
 		fontFamily: 'monospace',
 	},
 	rainbow: `
-			background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-	        background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-	        color:transparent;
-	        -webkit-background-clip: text;
-	        background-clip: text;
-	        margin-left: 100px;
-        `,
+		background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+        background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+        color:transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        margin-left: 100px;
+    `,
 	switchContainer: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -47,80 +47,11 @@ const styles = theme => ({
 		flexDirection: 'row',
 		flex: '1 0 60px',
 		alignItems: 'center',
-		paddingLeft: '30px',
+		justifyContent: 'space-between',
+		padding: '0px 30px',
 		fontSize: 18,
 		fontWeight: 'bold',
-	},
-	colorPrimary: {
-		color: theme.palette.primary.main,
-		'&:hover': {
-			backgroundColor: theme.palette.primary.main,
-			color: theme.palette.primary.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.primary.main,
-		}
-	},
-	colorSecondary: {
-		color: theme.palette.secondary.main,
-		'&:hover': {
-			backgroundColor: theme.palette.secondary.main,
-			color: theme.palette.secondary.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.secondary.main,
-		}
-	},
-	colorTertiary: {
-		color: theme.palette.tertiary.main,
-		'&:hover': {
-			backgroundColor: theme.palette.tertiary.main,
-			color: theme.palette.tertiary.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.tertiary.main,
-		}
-	},
-	colorSuccess: {
-		color: theme.palette.success.main,
-		'&:hover': {
-			backgroundColor: theme.palette.success.main,
-			color: theme.palette.success.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.success.main,
-		}
-	},
-	colorDanger: {
-		color: theme.palette.danger.main,
-		'&:hover': {
-			backgroundColor: theme.palette.danger.main,
-			color: theme.palette.danger.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.danger.main,
-		}
-	},
-	colorWarning: {
-		color: theme.palette.warning.main,
-		'&:hover': {
-			backgroundColor: theme.palette.warning.main,
-			color: theme.palette.warning.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.warning.main,
-		}
-	},
-	colorInfo: {
-		color: theme.palette.info.main,
-		'&:hover': {
-			backgroundColor: theme.palette.info.main,
-			color: theme.palette.info.bright[1]
-		},
-		'&:active': {
-			backgroundColor: theme.palette.info.main,
-		}
-	},
+	}
 })
 
 export default styles

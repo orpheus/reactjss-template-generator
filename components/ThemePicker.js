@@ -1,18 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import withStyles from 'react-jss'
-import _ from 'classnames'
 
 import ToggleSwitch from './ToggleSwitch'
 import styles from '../styles/ThemePicker'
 
-const capitalize = (word) => {
-	return word[0].toUpperCase() + word.slice(1)
-}
-
 const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme}) => {
 	const colorTypes = theme.palette.colorTypes
+	
+	const [hoverItem, setHoverItem] = useState(undefined)
+	function handleMouseEnter(e) {
+		setHoverItem(e.target.id)
+		showSpectrum(e)
+	}
+	function handleMouseLeave(e){
+		setHoverItem(undefined)
+		hideSpectrum(e)
+	}
+	const style = (type) => {
+		let color = theme.palette[type].bright[4]
+		if (type === 'background') {
+			color = theme.palette[type].sat[4]
+		}
+		return type === hoverItem ? {
+			color,
+			backgroundColor: theme.palette[type].main
+		} : {}
+	}
+	
 	return <div className={classes.root}>
-		
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
 			<div className={classes.switchContainer}>
@@ -29,14 +44,24 @@ const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme}) 
 		<div className={classes.listContainer}>
 			<ul className={classes.colorList}>
 				{colorTypes.map((ct, i) => {
+					let color = theme.palette[ct].main
+					if (ct === 'background') {
+						color = theme.palette[ct].sat[4]
+					}
 					return <li
 						key={i}
 						id={ct}
-						className={_(classes.colorItem, classes[`color${capitalize(ct)}`])}
-						onMouseEnter={showSpectrum}
-						onMouseLeave={hideSpectrum}
+						className={classes.colorItem}
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						style={{color, ...style(ct)}}
 					>
-						<span>{ct}</span>
+						<span>{`${ct}: ${theme.palette[ct].main}`}</span>
+						<img
+							style={{height: '18px', cursor: 'pointer', marginRight: '10px'}}
+							src={'/static/palette.svg'}
+							alt={'palette'}
+						/>
 					</li>
 				})}
 			</ul>

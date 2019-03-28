@@ -9,9 +9,11 @@ const Home = ({classes, toggleTheme}) => {
 	const [activeColorType, setActiveColorType] = useState(undefined)
 
 	function handleActiveColor(e) {
+		e.preventDefault()
 		setActiveColorType(e.target.id)
 	}
-	function handleInactiveColor() {
+	function handleInactiveColor(e) {
+		e.preventDefault()
 		setActiveColorType(undefined)
 	}
 	// console.log('home render')
