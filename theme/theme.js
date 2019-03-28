@@ -80,28 +80,15 @@ const commonPalette = {
 	}
 }
 let theme = {
-	mode: 'light',
 	light: {
+		name: 'light',
 		palette: {
 			...generatePalette(lightTheme),
 			...commonPalette
 		},
 	},
 	dark: {
-		palette: {
-			...generatePalette(darkTheme),
-			...commonPalette
-		},
-	},
-}
-export const otherTheme = {
-	light: {
-		palette: {
-			...generatePalette(lightTheme),
-			...commonPalette
-		},
-	},
-	dark: {
+		name: 'dark',
 		palette: {
 			...generatePalette(darkTheme),
 			...commonPalette
