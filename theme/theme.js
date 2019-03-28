@@ -77,7 +77,11 @@ const commonPalette = {
 	greyscale: (v) => {
 		let f = chroma.scale()
 		return f(v).hex()
-	}
+	},
+	brighten: chroma.brighten,
+	darken: chroma.darken,
+	saturate: chroma.saturate,
+	desaturate: chroma.desaturate,
 }
 let theme = {
 	light: {
