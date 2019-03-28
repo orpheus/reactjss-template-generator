@@ -33,7 +33,7 @@ const styles = theme => ({
 			left: '-8px',
 			top: '-4px',
 			bottom: 4,
-			backgroundColor: theme.palette.greyscale(1),
+			backgroundColor: theme.palette.text.main,
 			'-webkit-transition': '.4s',
 			transition: '.4s',
 			'-o-transition': '.4s',
