@@ -1,7 +1,7 @@
 import {ThemeProvider} from 'react-jss'
-import theme from './theme'
+import ThemeGenerator from './theme'
 
 export {
 	ThemeProvider,
-	theme
+	ThemeGenerator
 }

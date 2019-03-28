@@ -4,10 +4,13 @@ import { SketchPicker } from 'react-color'
 
 import styles from '../styles/ColorPicker'
 
-const ColorPicker = ({classes}) => {
+const ColorPicker = ({classes, color, onChangeComplete}) => {
 
 	return <div className={classes.root}>
-		<SketchPicker/>
+		<SketchPicker
+			color={color}
+			onChangeComplete={onChangeComplete}
+		/>
 	</div>
 }
 

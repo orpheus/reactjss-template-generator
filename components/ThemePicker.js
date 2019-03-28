@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import withStyles from 'react-jss'
 
 import ToggleSwitch from './ToggleSwitch'
 import styles from '../styles/ThemePicker'
 import ColorPicker from "./ColorPicker";
 
-const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme}) => {
+const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme, updateTheme}) => {
 	const colorTypes = theme.palette.colorTypes
 	
 	const [hoverItem, setHoverItem] = useState(undefined)
@@ -37,10 +37,10 @@ const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme}) 
 		setActiveItem(activeItem => activeItem === name ? undefined : name)
 	}
 	
-	useEffect(() => {
-		console.log(activeItem)
-	}, [activeItem])
-	
+	function handleColorChange(type, color) {
+		const hex = color.hex
+		updateTheme(type, hex)
+	}
 	return <div className={classes.root}>
 		<div className={classes.colorHeader}>
 			<h1 className={classes.rainbow}>Color Picker</h1>
@@ -78,7 +78,10 @@ const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme}) 
 							onClick={handlePaletteClick}
 							id={ct}
 						/>
-						{activeItem === ct && <ColorPicker/>}
+						{activeItem === ct && <ColorPicker
+							color={theme.palette[ct].main}
+							onChangeComplete={(color) => handleColorChange(ct, color)}
+						/>}
 					</li>
 				})}
 			</ul>

@@ -1,4 +1,6 @@
-const styles = theme => ({
+const styles = theme => {
+	// console.log('theme', theme)
+	return ({
 	__root__: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -19,7 +21,7 @@ const styles = theme => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-})
+})}
 
 
 export default styles
