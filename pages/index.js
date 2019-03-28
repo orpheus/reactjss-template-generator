@@ -6,12 +6,12 @@ import Home from '../components/Home'
 const Index = () => {
 	const [mode, setMode] = useState('light')
 	
-	function toggleTheme(state) {
+	function handleThemeToggle(state) {
 		setMode(state ? 'light':'dark')
 	}
 	
 	return <ThemeProvider theme={theme[mode]}>
-		<Home toggleTheme={toggleTheme}/>
+		<Home toggleTheme={handleThemeToggle}/>
 	</ThemeProvider>
 }
 
