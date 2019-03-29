@@ -33,11 +33,16 @@ const styles = theme => {
 		PaletteCode: {
 			display: 'flex',
 			marginLeft: '240px',
-			marginBottom: '220px',
 			width: 450,
+			marginTop: 'auto',
+			marginBottom: 'auto',
+		},
+		codeHighlight: {
+			'& code': {
+				padding: [50, 63, 50, 43,]
+			}
 		}
 	})
 }
-
 
 export default styles

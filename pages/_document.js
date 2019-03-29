@@ -18,6 +18,7 @@ export default class JssDocument extends Document {
 					
 				`}
 				</style>
+				<link rel='stylesheet' href='https://highlightjs.org/static/demo/styles/ocean.css'/>
 			</Head>
 			<body>
 			<Main />

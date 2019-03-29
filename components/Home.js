@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import withStyles from 'react-jss'
-
+// import {highlight} from 'highlight.js'
+import Highlight from 'react-highlight.js'
 
 import styles from '../styles/Home'
 import ThemePicker from './ThemePicker'
@@ -16,12 +17,7 @@ const Home = ({classes, toggleTheme, updateTheme, palettes}) => {
 	function handleInactiveColor() {
 		setActiveColorType(undefined)
 	}
-	
-	// const Component = () => {
-	// 	const stringifiedCode = JSON.stringify(palettes)
-	// 	return <SyntaxHighlighter language='javascript' style={dark}>{stringifiedCode}</SyntaxHighlighter>;
-	// }
-	
+
 	return <div className={classes.__root__}>
 		<div className={classes.__layoutContainer__}>
 			<div className={classes.ThemePicker}>
@@ -39,7 +35,10 @@ const Home = ({classes, toggleTheme, updateTheme, palettes}) => {
 				/></div>
 			}
 			{!activeColorType && <div className={classes.PaletteCode}>
-				<pre><code className="javascript">'{name: 'ryan'}'</code></pre>
+				<Highlight className={classes.codeHighlight} language="javascript">
+					{JSON.stringify(palettes, null, 4)}
+				</Highlight>
+		
 			</div>}
 		</div>
 	</div>
