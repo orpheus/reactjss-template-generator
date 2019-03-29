@@ -3,10 +3,6 @@ import chroma from 'chroma-js'
 export default class ThemeGenerator {
 	constructor(palettes) {
 		
-		if (palettes) {
-			this.fromPalettes(palettes)
-		}
-		
 		this.palettes = {
 			light: {
 				primary: 'teal',
@@ -37,14 +33,14 @@ export default class ThemeGenerator {
 			greyscale: (v) => {
 				let f = chroma.scale()
 				return f(v).hex()
-			},
-			brighten: chroma.brighten,
-			darken: chroma.darken,
-			saturate: chroma.saturate,
-			desaturate: chroma.desaturate,
+			}
 		}
 		
 		this.shades = 5
+		
+		if (palettes) {
+			this.addPalettes(palettes)
+		}
 	}
 	
 	generateTheme() {
@@ -74,13 +70,12 @@ export default class ThemeGenerator {
 	updatePalette(name, type, color) {
 		this.palettes[name][type] = color
 	}
-	
-	fromPalettes(palettes) {
+
+	addPalettes(palettes) {
 		for (let name in palettes) {
 			if (palettes.hasOwnProperty(name)) {
 				// todo:: check if palette has all fields needed, if not use default color
 				this.palettes[name] = palettes[name]
-				
 			}
 		}
 	}
@@ -103,7 +98,11 @@ export default class ThemeGenerator {
 					sat: this.saturate(color, shades),
 					desat: this.desaturate(color, shades),
 					bright: this.brighten(color, shades),
-					dark: this.darken(color, shades)
+					dark: this.darken(color, shades),
+					brighten: (v) => chroma(color).brighten(v),
+					darken: (v) => chroma(color).darken(v),
+					saturate: (v) => chroma(color).darken(v),
+					desaturate: (v) => chroma(color).desaturate(v)
 				}
 			}
 		}
@@ -140,5 +139,16 @@ export default class ThemeGenerator {
 			arr.push(chroma(color).brighten(i).hex())
 		}
 		return arr
+	}
+	
+	getShades() {
+		return this.shades
+	}
+	
+	setShades(n) {
+		if (typeof n !== 'number' || n <= 0) {
+			throw new Error('shades must be of type number > 0')
+		}
+		this.shades = n
 	}
 }
