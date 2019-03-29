@@ -1,10 +1,8 @@
 const styles = theme => ({
 		root: {
 			width: 450,
-			marginLeft: 50,
 			display: 'flex',
 			flexDirection: 'column',
-			marginTop: 30,
 		},
 		colorRowContainer: {
 			display: 'flex',

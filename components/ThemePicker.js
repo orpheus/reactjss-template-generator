@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import withStyles from 'react-jss'
 
 import ToggleSwitch from './ToggleSwitch'
@@ -11,14 +11,25 @@ const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme, u
 	const [hoverItem, setHoverItem] = useState(undefined)
 	const [activeItem, setActiveItem] = useState(undefined)
 	
+	useEffect(() => {
+		if (activeItem) {
+			showSpectrum(activeItem)
+		}
+	}, [activeItem])
+	
 	function handleMouseEnter(e) {
-		setHoverItem(e.target.id)
-		showSpectrum(e)
+		const type = e.target.id
+		setHoverItem(type)
+		if (type) {
+			showSpectrum(type)
+		}
 	}
 	
-	function handleMouseLeave(e) {
+	function handleMouseLeave() {
 		setHoverItem(undefined)
-		hideSpectrum(e)
+		if (!activeItem) {
+			hideSpectrum()
+		}
 	}
 	
 	const style = (type) => {
@@ -26,7 +37,7 @@ const ThemePicker = ({classes, theme, showSpectrum, hideSpectrum, toggleTheme, u
 		if (type === 'background') {
 			color = theme.palette[type].sat[4]
 		}
-		return type === hoverItem ? {
+		return type === hoverItem || type === activeItem ? {
 			color,
 			backgroundColor: theme.palette[type].main
 		} : {}

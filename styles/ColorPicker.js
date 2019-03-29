@@ -1,6 +1,6 @@
 const styles = {
 	root: `
-	    top: 0;
+	    top: -90px;
 	    right: -230px;
 	    position: absolute;
 	`

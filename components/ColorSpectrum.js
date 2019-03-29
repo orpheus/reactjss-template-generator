@@ -11,11 +11,10 @@ const spectrumNames = {
 }
 
 const ColorSpectrum = ({classes, activeColorType, theme}) => {
-	if (!activeColorType) {
-		return null
-	}
-	
-	let {main, ...rest} = theme.palette[activeColorType] // rest === color shades
+	const {
+		main, brighten, darken, saturate, desaturate, // ignore these
+		...rest
+	} = theme.palette[activeColorType] // rest === color shades
 	
 	return <div className={classes.root}>
 		{Object.keys(rest).map((name, i) => {

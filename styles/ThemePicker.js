@@ -6,8 +6,6 @@ const styles = theme => ({
 	    flex-direction: column;
 	    box-shadow: 0px 2px 4px;
 	    color: grey;
-	    margin-top: 50px;
-	    margin-left: 50px;
     `,
 	colorHeader: {
 		display: 'flex',
