@@ -17,5 +17,13 @@
     "react-color": "^2.17.0",
     "react-dom": "^16.8.5",
     "react-jss": "git@github.com:/cssinjs/jss/tree/master/packages/react-jss"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.5.0",
+    "jest": "^24.5.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
