@@ -4,27 +4,27 @@ export default class ThemeGenerator {
 	constructor(palettes) {
 		
 		this.palettes = {
-			light: {
-				primary: 'teal',
-				secondary: 'darkblue',
-				tertiary: 'green',
-				background: 'white',
-				text: 'black',
-				success: 'green',
-				warning: 'orange',
-				danger: 'red',
-				info: 'blue',
+			"light": {
+				"primary": "#3688aa",
+				"secondary": "#c45249",
+				"tertiary": "#303c58",
+				"background": "#ffffff",
+				"text": "#000000",
+				"success": "#339757",
+				"warning": "#fcaa32",
+				"danger": "#FF0000",
+				"info": "#5d5d66"
 			},
-			dark: {
-				primary: 'blue',
-				secondary: 'yellow',
-				tertiary: 'purple',
-				background: 'black',
-				text: 'white',
-				success: 'green',
-				warning: 'orange',
-				danger: 'red',
-				info: 'blue',
+			"dark": {
+				"primary": "#3688aa",
+				"secondary": "#c45249",
+				"tertiary": "#4f6391",
+				"background": "#000000",
+				"text": "#ffffff",
+				"success": "#339757",
+				"warning": "#ee9a26",
+				"danger": "#FF0000",
+				"info": "#74748d"
 			}
 		}
 		
@@ -70,7 +70,7 @@ export default class ThemeGenerator {
 	updatePalette(name, type, color) {
 		this.palettes[name][type] = color
 	}
-
+	
 	addPalettes(palettes) {
 		for (let name in palettes) {
 			if (palettes.hasOwnProperty(name)) {
