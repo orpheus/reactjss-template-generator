@@ -111,4 +111,10 @@ describe('ThemeGenerator', () => {
 		theme = themegen.getTheme()
 		expect(theme.light.palette.primary.main).toEqual('red')
 	})
+	it('use chroma functions', () => {
+		const themegen = new ThemeGenerator()
+		let theme = themegen.getTheme('light')
+		let brighten = theme.palette.primary.brighten(.3)
+		expect(typeof brighten).toEqual('string')
+	})
 })
